@@ -1,0 +1,20 @@
+{
+  "helloWorld": "Bonjour le monde!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "today": "Aujourd'hui",
+  "yesterday": "Hier",
+  "home": "Accueil",
+  "me": "Moi",
+  "parameters": "Paramètres",
+  "company": "Entreprise",
+  "server": "Serveurs",
+  "notification" : "Notifications",
+  "security": "Sécurité",
+  "themesAndColors": "Thèmes et couleurs",
+  "betaFunctionality": "Fonctionalité beta",
+  "bugReport": "Rapport de bug",
+  "about": "A propos"
+
+}
