@@ -53,15 +53,15 @@ class RoundedItemSlider extends StatelessWidget{
                   margin: EdgeInsets.fromLTRB(0,0,0,15),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage('https://serveur-creatif.fr/img/icon-emeraude-minecraft.png'),
-                      fit: BoxFit.fill
+                      image: NetworkImage('https://www.moneyvox.fr/i/media/03i/003631iea4.jpg'),
+                      fit: BoxFit.cover
                     ),
                     color: Colors.yellow,
                     borderRadius: BorderRadius.all(Radius.circular(300.0)),
                   ),
 
                 ),
-                Text("Nation Glory yellow blue red yesu ghouiergh z",
+                Text("Banque",
                   maxLines: 1,
                   // softWrap: false,
                   overflow: TextOverflow.ellipsis,

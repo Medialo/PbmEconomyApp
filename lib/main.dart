@@ -4,12 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:pbmeconomyapp/model/MojanAPIUUID.dart';
 import 'package:pbmeconomyapp/page/home/HomePage.dart';
-import 'package:pbmeconomyapp/page/me/MePage.dart';
-import 'package:pbmeconomyapp/page/me/MePages.dart';
+
+import 'package:pbmeconomyapp/page/settings/MePages.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pbmeconomyapp/page/settings/SettingsPage.dart';
+import 'package:pbmeconomyapp/routes.dart';
 //https://github.com/flutter/gallery
 //https://medium.muz.li/top-10-banking-app-ui-design-case-study-41ebc45ded1c
 //https://rondesign.agency/?utm_source=dribbble
@@ -18,11 +21,18 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 //https://dribbble.com/shots/6803518-Banking-App-Home-Insights
 //
 
+Future<InitializationStatus> _initGoogleMobileAds() {
+  // TODO: Initialize Google Mobile Ads SDK
+  return MobileAds.instance.initialize();
+}
+
 void main() {
   runApp(MyApp());
+  _initGoogleMobileAds();
 }
 
 class MyApp extends StatelessWidget {
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -31,6 +41,7 @@ class MyApp extends StatelessWidget {
         statusBarIconBrightness: Brightness.dark,/* set Status bar icons color in Android devices.*/
         statusBarBrightness: Brightness.dark)/* set Status bar icon color in iOS. */
     );
+
 
     return MaterialApp(
       title: 'Flutter Demo',
@@ -48,12 +59,13 @@ class MyApp extends StatelessWidget {
         // This is the theme of your application.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "/",
-      routes: {
+      // initialRoute: "test",
+      routes: <String, WidgetBuilder>{
         "addFirstServer": (c) => AddFirstServer(),
-        "home": (c) => MyHomePage(),
+        Routes.homeRoute: (c) => MyHomePage(),
 
-        "aboutPage": (c) => MePages.about,
+        Routes.meRoute_About: (c) => MePages.about,
+        Routes.welcomeRoute: (c) => WelcomeScreen(),
       },
       home: WelcomeScreen(),
     );
@@ -389,7 +401,7 @@ class _MyHomePageState extends State<MyHomePage> {
     HomePage(),
     Text("todo"),
     Text("todo entreprise"),
-    MePage(),
+    SettingsPage(),
   ];
 
   int _selectedIndex = 0;
@@ -435,15 +447,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.build),
-                    label: 'Tets'
+                    label: 'Test'
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.account_balance),
-                    label: 'Entreprise'
+                    label: AppLocalizations.of(context)!.company
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.account_circle_sharp),
-                    label: 'Moi'
+                    label: AppLocalizations.of(context)!.parameters
                 ),
               ],
               currentIndex: _selectedIndex,

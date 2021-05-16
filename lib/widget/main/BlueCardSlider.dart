@@ -81,7 +81,7 @@ class BlueCardSliderState extends State<BlueCardSlider>{
 
                       ),
                       Container(
-                        child: Text("LTC5"),
+                        child: Text("EUR"),
                         padding: EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           color: Colors.white,
